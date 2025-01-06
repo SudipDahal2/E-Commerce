@@ -2,9 +2,13 @@ import express from "express"
 import dotenv from "dotenv"
 import connectDb from "./src/lib/db.js"
 
+import authRoute from "./src/routes/auth.routes.js"
+
 const app = express()
 
 dotenv.config()
+
+app.use("/api/auth",authRoute)
 
 connectDb()
 .then(()=>{
